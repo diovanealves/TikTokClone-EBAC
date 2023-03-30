@@ -12,14 +12,13 @@ export default function Video() {
       setPlay(false);
     } else {
       videoRef.current.play();
-      videoRef.current.volume(volume);
+      videoRef.current.volume = volume;
       setPlay(true);
     }
   }
 
   return (
     <div className="relative h-full w-full snap-start">
-      index
       <video
         className="h-full w-full object-fill"
         ref={videoRef}
