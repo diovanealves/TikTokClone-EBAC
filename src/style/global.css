@@ -9,3 +9,21 @@
   -webkit-box-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  @apply bg-black text-white;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+.app_Video::-webkit-scrollbar {
+  display: none;
+}
+
+.app_Video {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
