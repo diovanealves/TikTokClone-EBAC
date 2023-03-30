@@ -23,6 +23,7 @@ export default function Video() {
         className="h-full w-full object-fill"
         ref={videoRef}
         onClick={handleStartVideo}
+        loop
         src={videoTest}
       ></video>
     </div>
