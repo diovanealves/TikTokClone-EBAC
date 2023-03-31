@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.js"],
+  content: ["./src/**/*.js", "./src/*.js"],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        slide: "spin 2s infinite linear",
+      },
+    },
   },
   plugins: [],
 };

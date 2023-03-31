@@ -1,5 +1,5 @@
 import "./style/global.css";
-import Video from "./components/Video";
+import Video from "./pages/Video";
 
 export default function App() {
   return (

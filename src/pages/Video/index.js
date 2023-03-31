@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import videoTest from "../../assets/videoTest.mp4";
+import Footer from "../../components/Footer";
 
 export default function Video() {
   const [play, setPlay] = useState(false);
@@ -26,6 +27,8 @@ export default function Video() {
         loop
         src={videoTest}
       ></video>
+
+      <Footer />
     </div>
   );
 }
