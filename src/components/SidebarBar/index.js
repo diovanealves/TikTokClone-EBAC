@@ -4,7 +4,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import ShareIcon from "@mui/icons-material/Share";
 import { useState } from "react";
 
-export default function VideoSideBar() {
+export default function VideoSideBar({ likes, messages, shares }) {
   const [like, setLike] = useState(false);
   function handdleLike() {
     setLike(!like);
@@ -18,15 +18,15 @@ export default function VideoSideBar() {
         ) : (
           <FavoriteBorderIcon fontSize="large" />
         )}
-        <p>{like ? 300 + 1 : 300}</p>
+        <p>{like ? likes + 1 : likes}</p>
       </div>
       <div className="p-5 text-center">
         <ChatIcon fontSize="large" />
-        <p>10</p>
+        <p>{messages}</p>
       </div>
       <div className="p-5 text-center">
         <ShareIcon fontSize="large" />
-        <p>32</p>
+        <p>{shares}</p>
       </div>
     </div>
   );

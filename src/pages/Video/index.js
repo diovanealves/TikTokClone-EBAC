@@ -1,9 +1,16 @@
 import { useRef, useState } from "react";
-import videoTest from "../../assets/videoTest.mp4";
 import Footer from "../../components/Footer";
 import VideoSideBar from "../../components/SidebarBar";
 
-export default function Video() {
+export default function Video({
+  likes,
+  messages,
+  shares,
+  name,
+  description,
+  music,
+  url,
+}) {
   const [play, setPlay] = useState(false);
   const videoRef = useRef(null);
   const volume = 0.5;
@@ -26,10 +33,10 @@ export default function Video() {
         ref={videoRef}
         onClick={handleStartVideo}
         loop
-        src={videoTest}
+        src={url}
       ></video>
-      <VideoSideBar />
-      <Footer />
+      <VideoSideBar likes={likes} messages={messages} shares={shares} />
+      <Footer name={name} description={description} music={music} />
     </div>
   );
 }
