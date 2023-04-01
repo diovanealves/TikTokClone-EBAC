@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import videoTest from "../../assets/videoTest.mp4";
 import Footer from "../../components/Footer";
+import VideoSideBar from "../../components/SidebarBar";
 
 export default function Video() {
   const [play, setPlay] = useState(false);
@@ -27,7 +28,7 @@ export default function Video() {
         loop
         src={videoTest}
       ></video>
-
+      <VideoSideBar />
       <Footer />
     </div>
   );
