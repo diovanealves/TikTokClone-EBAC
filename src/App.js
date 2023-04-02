@@ -1,19 +1,41 @@
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore/lite";
+
 import "./style/global.css";
 import Video from "./pages/Video";
+import db from "./config/firebase.js";
 
 export default function App() {
+  const [video, setVideos] = useState([]);
+
+  async function getVideos() {
+    const videosCollection = collection(db, "videos");
+    const videosSnapshot = await getDocs(videosCollection);
+    const videosList = videosSnapshot.docs.map((doc) => doc.data());
+    setVideos(videosList);
+  }
+
+  useEffect(() => {
+    getVideos();
+  }, []);
+
   return (
     <div className="h-screen grid place-items-center">
       <div className="relative h-[90%] w-11/12 max-w-[500px] overflow-scroll rounded-2xl snap-y snap-mandatory app_Video">
-        <Video
-          likes={100}
-          messages={30}
-          shares={150}
-          name="Diovane"
-          description="Bro, is this serious?"
-          music="Rick Astley - Never Gonna Give You Up"
-          url="https://dqyeyfehqynepruesbzg.supabase.co/storage/v1/object/sign/videos/Never%20gonna%20give%20you%20up.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWRlb3MvTmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXAubXA0IiwiaWF0IjoxNjgwMzYzNzI2LCJleHAiOjE3MTE4OTk3MjZ9.83NyYnvmW4o8ZFWprDt6cdV2HJq2gM9pMuVQ93y6qcU&t=2023-04-01T15%3A42%3A06.620Z"
-        />
+        {video.map((item) => {
+          return (
+            <Video
+              key={item.url}
+              likes={item.likes}
+              messages={item.messages}
+              shares={item.shares}
+              name={item.name}
+              description={item.description}
+              music={item.music}
+              url={item.url}
+            />
+          );
+        })}
       </div>
     </div>
   );
