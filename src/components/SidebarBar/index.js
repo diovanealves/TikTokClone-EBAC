@@ -11,7 +11,7 @@ export default function VideoSideBar({ likes, messages, shares }) {
   }
 
   return (
-    <div className="absolute top-[40%] md:top-[55%] right-0 text-white">
+    <div className="absolute top-[45%] md:top-[48%] right-0 text-white">
       <div className="p-5 text-center" onClick={handdleLike}>
         {like ? (
           <FavoriteIcon fontSize="large" />

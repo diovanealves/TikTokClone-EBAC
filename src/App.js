@@ -21,11 +21,11 @@ export default function App() {
 
   return (
     <div className="h-screen grid place-items-center">
-      <div className="relative h-[90%] w-11/12 max-w-[500px] overflow-scroll rounded-2xl snap-y snap-mandatory app_Video">
-        {video.map((item) => {
+      <div className="relative w-full h-screen md:h-[90%] md:w-full md:max-w-[500px] md:rounded-2xl overflow-scroll  snap-y snap-mandatory app_Video">
+        {video.map((item, index) => {
           return (
             <Video
-              key={item.url}
+              key={index}
               likes={item.likes}
               messages={item.messages}
               shares={item.shares}
